@@ -1,0 +1,31 @@
+gdb answers:
+    q1:
+        the function usertrap() defined in kernel/trap.c
+        called syscall
+    q2:
+        the value of p->trapframe->a7 is 7
+        according to kernel/syscall.h this value
+        represents SYS_exec
+    q3:
+        the value of the sstatus register is 0x22, meaning
+        the SIE and SPIE bits are set to one. if i understand
+        correctly, according to the RISC-V priviliged
+        instructions file, this means that in the previous
+        CPU mode, supervisor interrupts were enabled.
+        i didn't find any more information regarding the
+        previous CPU mode
+    q4:
+        the kernel is panicing at the assembly lw instruction.
+        the a3 register corresponds to num
+    q5:
+        the faulting assembly instruction is indeed the one i
+        found above.
+        the kernel address space starts at 0x80000000. kernel
+        should not be able to read from address 0. this is
+        why the kernel crashes.
+        the scause register was set to 0xd. according to the
+        risc-v priviliged insctructions file, 0xd represents
+        load page fault, which sounds about right
+    q6:
+        the name of the binary running when the kernel paniced
+        is 'initcode'. it's pid is 1.
