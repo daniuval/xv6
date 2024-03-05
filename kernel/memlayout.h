@@ -77,7 +77,3 @@ struct usyscall {
   int pid;  // Process ID
 };
 #endif
-
-struct usyscall {
-  int pid;  // Process ID
-};
