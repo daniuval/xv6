@@ -71,7 +71,6 @@ sys_sleep(void)
 
 
 #ifdef LAB_PGTBL
-<<<<<<< HEAD
 pte_t* walk(pagetable_t, uint64, int);
 int
 sys_pgaccess(void)
@@ -92,12 +91,6 @@ sys_pgaccess(void)
     *curr &= ~PTE_A;
   }
   copyout(pagetable, mask, (char*)&my_mask, sizeof(int));
-=======
-int
-sys_pgaccess(void)
-{
-  // lab pgtbl: your code here.
->>>>>>> parent of 1dabdc8 (Revert "pgtbl")
   return 0;
 }
 #endif
