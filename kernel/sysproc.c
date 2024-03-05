@@ -1,7 +1,7 @@
 #include "types.h"
 #include "riscv.h"
-#include "defs.h"
 #include "param.h"
+#include "defs.h"
 #include "memlayout.h"
 #include "spinlock.h"
 #include "proc.h"
@@ -54,9 +54,8 @@ sys_sleep(void)
   int n;
   uint ticks0;
 
+
   argint(0, &n);
-  if(n < 0)
-    n = 0;
   acquire(&tickslock);
   ticks0 = ticks;
   while(ticks - ticks0 < n){
@@ -72,6 +71,7 @@ sys_sleep(void)
 
 
 #ifdef LAB_PGTBL
+<<<<<<< HEAD
 pte_t* walk(pagetable_t, uint64, int);
 int
 sys_pgaccess(void)
@@ -92,6 +92,12 @@ sys_pgaccess(void)
     *curr &= ~PTE_A;
   }
   copyout(pagetable, mask, (char*)&my_mask, sizeof(int));
+=======
+int
+sys_pgaccess(void)
+{
+  // lab pgtbl: your code here.
+>>>>>>> parent of 1dabdc8 (Revert "pgtbl")
   return 0;
 }
 #endif
